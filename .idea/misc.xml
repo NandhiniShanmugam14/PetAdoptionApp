@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/PetAdoptionApp/app/src/main/res/layout/activity_login.xml" value="0.22" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/PetAdoptionApp/app/src/main/res/layout/activity_main.xml" value="0.10144927536231885" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/PetAdoptionApp/app/src/main/res/layout/activity_register.xml" value="0.22" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/PetAdoptionApp/app/src/main/res/layout/activity_splash.xml" value="0.22" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/PetAdoptionApp/app/src/main/res/layout/activity_user.xml" value="0.1" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/PetAdoptionApp/app/src/main/res/layout/fragment_login.xml" value="0.16802536231884058" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/PetAdoptionApp/app/src/main/res/layout/fragment_register.xml" value="0.16802536231884058" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/PetAdoptionApplication/app/src/main/res/layout/activity_main.xml" value="0.12182971014492754" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/PetAdoptionApplication/app/src/main/res/layout/activity_splash.xml" value="0.12182971014492754" />
       </map>
