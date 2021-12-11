@@ -1,5 +1,6 @@
 package com.example.petadoptionapplication
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,6 +10,7 @@ import android.widget.TextView
 import com.example.petadoptionapplication.data.PetApplication
 import com.example.petadoptionapplication.data.user.User
 import com.example.petadoptionapplication.data.user.UserReq
+import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -21,10 +23,16 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        val mail=findViewById<EditText>(R.id.usermail).text
-        val password=findViewById<EditText>(R.id.userpassword).text
+        val mail=findViewById<TextInputLayout>(R.id.usermail).editText?.text
+        val password=findViewById<TextInputLayout>(R.id.userpassword).editText?.text
 
-        findViewById<Button>(R.id.button).setOnClickListener()
+        findViewById<TextView>(R.id.registerButton).setOnClickListener()
+        {
+            val intent=Intent(this@LoginActivity,RegisterActivity::class.java)
+            startActivity(intent)
+        }
+
+        findViewById<TextView>(R.id.loginButton).setOnClickListener()
         {
             val petapplication=application as PetApplication
             val petservice=petapplication.api
@@ -35,6 +43,17 @@ class LoginActivity : AppCompatActivity() {
                     override fun onResponse(call: Call<User?>, response: Response<User?>) {
                         if(response.isSuccessful)
                         {
+                            val userValue=response.body()!!
+                            val sharedPreferences=getSharedPreferences("user",Context.MODE_PRIVATE)
+                            val editor=sharedPreferences.edit()
+                            editor.apply()
+                            {
+                                putInt("id",userValue.id)
+                                putString("token",userValue.token)
+                                putLong("memberSince",userValue.memberSince)
+                                putString("mail",userValue.email)
+                            }.apply()
+
                             val intent=Intent(this@LoginActivity,MainActivity::class.java)
                             startActivity(intent)
                             finish()

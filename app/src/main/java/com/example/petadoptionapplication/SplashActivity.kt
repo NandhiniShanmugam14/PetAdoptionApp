@@ -1,5 +1,6 @@
 package com.example.petadoptionapplication
 
+import android.content.Context
 import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -19,18 +20,18 @@ class SplashActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-        val token=""
-
+        val sharedPreferences=getSharedPreferences("user",Context.MODE_PRIVATE)
+        val token=sharedPreferences.getString("token",null)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            if(token.isEmpty())
+            if(token.isNullOrEmpty())
             {
                 val intent = Intent(this,LoginActivity::class.java)
                 startActivity(intent)
             }
             else
             {
-                val intent = Intent(this,RegisterActivity::class.java)
+                val intent = Intent(this,MainActivity::class.java)
                 startActivity(intent)
             }
             finish()
