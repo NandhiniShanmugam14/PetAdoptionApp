@@ -14,6 +14,7 @@ import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -34,8 +35,12 @@ class RegisterActivity : AppCompatActivity() {
             val user= UserReq(mail.toString(),password.toString())
             CoroutineScope(Dispatchers.IO).launch {
 
-                petservice.userRegister(user).enqueue(object : Callback<String?> {
-                    override fun onResponse(call: Call<String?>, response: Response<String?>) {
+                petservice.userRegister(user).enqueue(object : Callback<ResponseBody?> {
+                    override fun onResponse(
+                        call: Call<ResponseBody?>,
+                        response: Response<ResponseBody?>
+                    )
+                    {
                         if(response.isSuccessful)
                         {
 
@@ -53,11 +58,13 @@ class RegisterActivity : AppCompatActivity() {
                         }
                     }
 
-                    override fun onFailure(call: Call<String?>, t: Throwable) {
+                    override fun onFailure(call: Call<ResponseBody?>, t: Throwable) {
                         findViewById<TextView>(R.id.regerrorMsg).text="Registration failed"
                     }
                 })
+
+
+                }
             }
         }
     }
-}

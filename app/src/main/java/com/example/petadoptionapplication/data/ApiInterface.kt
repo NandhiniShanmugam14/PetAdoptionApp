@@ -2,6 +2,7 @@ package com.example.petadoptionapplication.data
 
 import com.example.petadoptionapplication.data.user.User
 import com.example.petadoptionapplication.data.user.UserReq
+import okhttp3.ResponseBody
 
 import retrofit2.Call
 
@@ -15,7 +16,7 @@ interface ApiInterface {
 
     @Headers("Content-Type: application/json")
     @POST("register")
-    fun userRegister(@Body user: UserReq):Call<String>
+    fun userRegister(@Body user: UserReq):Call<ResponseBody>
 
 }
 
