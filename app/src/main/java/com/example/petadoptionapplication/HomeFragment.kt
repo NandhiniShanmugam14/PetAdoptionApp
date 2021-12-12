@@ -16,18 +16,6 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view=inflater.inflate(R.layout.fragment_home, container, false)
-
-        val sharedPreferences=activity?.getSharedPreferences("user", Context.MODE_PRIVATE)
-        val editor= sharedPreferences!!.edit()
-
-        view.findViewById<TextView>(R.id.logout).setOnClickListener()
-        {
-            editor.clear()
-            editor.apply()
-            val intent= Intent(activity,LoginActivity::class.java)
-            startActivity(intent)
-            activity?.finish()
-        }
         return view
     }
 }

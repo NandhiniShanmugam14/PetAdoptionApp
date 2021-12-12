@@ -1,6 +1,7 @@
 package com.example.petadoptionapplication
 
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -32,6 +33,16 @@ class ProfileFragment : Fragment() {
         view.findViewById<TextView>(R.id.membersince).text="Member since: "+DateTimeFormatter.ofPattern("dd MMM yyyy").format(instant)
         view.findViewById<TextView>(R.id.mailid).text=email
 
+        val editor= sharedPreferences!!.edit()
+
+        view.findViewById<TextView>(R.id.logout).setOnClickListener()
+        {
+            editor.clear()
+            editor.apply()
+            val intent= Intent(activity,LoginActivity::class.java)
+            startActivity(intent)
+            activity?.finish()
+        }
         return view
     }
 }
