@@ -44,17 +44,14 @@ class RegisterActivity : AppCompatActivity() {
                         if(response.isSuccessful)
                         {
 
-                            Toast.makeText(this@RegisterActivity, "Registration success!", Toast.LENGTH_SHORT)
-                                .show()
-
+                            Toast.makeText(this@RegisterActivity, "Registration success!", Toast.LENGTH_SHORT).show()
                             val intent=Intent(this@RegisterActivity,LoginActivity::class.java)
                             startActivity(intent)
-
+                            finish()
                         }
                         else
                         {
-
-                            findViewById<TextView>(R.id.regerrorMsg).text="Credentials are wrong"
+                            findViewById<TextView>(R.id.regerrorMsg).text="Email is already Taken"
                         }
                     }
 

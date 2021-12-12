@@ -54,7 +54,7 @@ class LoginActivity : AppCompatActivity() {
                                 putString("mail",userValue.email)
                             }.apply()
 
-                            val intent=Intent(this@LoginActivity,MainActivity::class.java)
+                            val intent=Intent(this@LoginActivity,HomeNavActivity::class.java)
                             startActivity(intent)
                             finish()
                         }

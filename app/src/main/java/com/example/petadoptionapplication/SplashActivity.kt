@@ -31,7 +31,7 @@ class SplashActivity : AppCompatActivity() {
             }
             else
             {
-                val intent = Intent(this,MainActivity::class.java)
+                val intent = Intent(this,HomeNavActivity::class.java)
                 startActivity(intent)
             }
             finish()
