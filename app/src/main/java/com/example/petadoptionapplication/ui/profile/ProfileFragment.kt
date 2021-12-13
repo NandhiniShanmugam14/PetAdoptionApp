@@ -32,7 +32,7 @@ class ProfileFragment : Fragment() {
         view.findViewById<TextView>(R.id.membersince).text="Member since: "+DateTimeFormatter.ofPattern("dd MMM yyyy").format(instant)
         view.findViewById<TextView>(R.id.mailid).text=email
 
-        val editor= sharedPreferences!!.edit()
+        val editor= sharedPreferences.edit()
 
         view.findViewById<TextView>(R.id.logout).setOnClickListener()
         {

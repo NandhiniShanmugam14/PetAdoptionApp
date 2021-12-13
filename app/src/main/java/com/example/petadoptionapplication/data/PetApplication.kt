@@ -1,10 +1,8 @@
 package com.example.petadoptionapplication.data
 
 import android.app.Application
-import com.fasterxml.jackson.databind.ObjectMapper
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.converter.jackson.JacksonConverterFactory
 
 class PetApplication:Application() {
     lateinit var api:ApiInterface
