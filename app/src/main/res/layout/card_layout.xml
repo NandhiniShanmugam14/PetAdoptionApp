@@ -33,8 +33,9 @@
             android:layout_width="169dp"
             android:layout_height="36dp"
             android:layout_marginLeft="40dp"
-            android:textColor="#A32828"
-            android:textSize="30sp"
+            android:textColor="#E35353"
+            android:textSize="26sp"
+            android:textStyle="bold"
             app:layout_constraintLeft_toRightOf="@+id/pet_image"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,7 +45,7 @@
             android:layout_height="36dp"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="10dp"
-            android:textColor="#A32828"
+            android:textColor="#E35353"
             android:textSize="24sp"
             app:layout_constraintStart_toEndOf="@+id/pet_image"
             app:layout_constraintTop_toBottomOf="@+id/pet_name" />
@@ -55,18 +56,17 @@
             android:layout_height="30dp"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="10dp"
-            android:textColor="#A32828"
+            android:textColor="#E35353"
             android:textSize="24sp"
             app:layout_constraintStart_toEndOf="@+id/pet_image"
             app:layout_constraintTop_toBottomOf="@+id/pet_type" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/year_txt"
             android:layout_width="60dp"
             android:layout_height="31dp"
             android:layout_marginTop="8dp"
-            android:text="(age)"
-            android:textColor="#8E8787"
+            android:textColor="#E35353"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
