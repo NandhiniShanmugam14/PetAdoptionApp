@@ -7,22 +7,22 @@
 
     <fragment
         android:id="@+id/nav_profile"
-        android:name="com.example.petadoptionapplication.ProfileFragment"
+        android:name="com.example.petadoptionapplication.ui.profile.ProfileFragment"
         android:label="Profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/nav_interested"
-        android:name="com.example.petadoptionapplication.InteresredFragment"
+        android:name="com.example.petadoptionapplication.ui.interest.InteresredFragment"
         android:label="I am Interested in"
         tools:layout="@layout/fragment_interesred" />
     <fragment
         android:id="@+id/nav_others"
-        android:name="com.example.petadoptionapplication.OthersFragment"
+        android:name="com.example.petadoptionapplication.ui.others.OthersFragment"
         android:label="Other Users"
         tools:layout="@layout/fragment_others" />
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.petadoptionapplication.HomeFragment"
+        android:name="com.example.petadoptionapplication.ui.home.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home" />
 

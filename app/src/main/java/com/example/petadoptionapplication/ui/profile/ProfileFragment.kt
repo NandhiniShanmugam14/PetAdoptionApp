@@ -1,4 +1,4 @@
-package com.example.petadoptionapplication
+package com.example.petadoptionapplication.ui.profile
 
 import android.content.Context
 import android.content.Intent
@@ -10,11 +10,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.annotation.RequiresApi
+import com.example.petadoptionapplication.LoginActivity
 import com.example.petadoptionapplication.R
-import java.time.LocalDate
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
-import java.time.temporal.ChronoUnit
 
 class ProfileFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.O)
@@ -39,7 +38,7 @@ class ProfileFragment : Fragment() {
         {
             editor.clear()
             editor.apply()
-            val intent= Intent(activity,LoginActivity::class.java)
+            val intent= Intent(activity, LoginActivity::class.java)
             startActivity(intent)
             activity?.finish()
         }
