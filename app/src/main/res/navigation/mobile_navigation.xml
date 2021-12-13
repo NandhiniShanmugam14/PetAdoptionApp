@@ -25,5 +25,20 @@
         android:name="com.example.petadoptionapplication.ui.home.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/nav_delete"
+        android:name="com.example.petadoptionapplication.AccountDeleteFragment"
+        android:label="fragment_account_delete"
+        tools:layout="@layout/fragment_account_delete" />
+    <fragment
+        android:id="@+id/nav_change_mail"
+        android:name="com.example.petadoptionapplication.ChangeMailFragment"
+        android:label="fragment_change_mail"
+        tools:layout="@layout/fragment_change_mail" />
+    <fragment
+        android:id="@+id/nav_login_history"
+        android:name="com.example.petadoptionapplication.LoginHistoryFragment"
+        android:label="fragment_login_history"
+        tools:layout="@layout/fragment_login_history" />
 
 </navigation>

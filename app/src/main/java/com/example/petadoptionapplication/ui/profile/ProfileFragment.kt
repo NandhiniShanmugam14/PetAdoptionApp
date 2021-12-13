@@ -8,8 +8,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.annotation.RequiresApi
+import androidx.navigation.Navigation
+import com.example.petadoptionapplication.ChangeMailFragment
 import com.example.petadoptionapplication.LoginActivity
 import com.example.petadoptionapplication.R
 import java.time.ZoneId
@@ -42,6 +45,22 @@ class ProfileFragment : Fragment() {
             startActivity(intent)
             activity?.finish()
         }
+
+        view.findViewById<Button>(R.id.changEmail).setOnClickListener()
+        {
+            Navigation.findNavController(view).navigate(R.id.nav_change_mail)
+        }
+
+        view.findViewById<Button>(R.id.reviewbutton).setOnClickListener()
+        {
+            Navigation.findNavController(view).navigate(R.id.nav_login_history)
+        }
+
+        view.findViewById<Button>(R.id.deletebutton).setOnClickListener()
+        {
+            Navigation.findNavController(view).navigate(R.id.nav_delete)
+        }
+
         return view
     }
 }

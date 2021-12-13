@@ -17,8 +17,5 @@ interface ApiInterface {
     @Headers("Content-Type: application/json")
     @POST("register")
     fun userRegister(@Body user: UserReq):Call<ResponseBody>
-
-
-
 }
 
