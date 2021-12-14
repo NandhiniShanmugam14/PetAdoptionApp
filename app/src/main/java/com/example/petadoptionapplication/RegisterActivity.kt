@@ -1,5 +1,6 @@
 package com.example.petadoptionapplication
 
+import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -24,11 +25,12 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        val mail=findViewById<TextInputLayout>(R.id.regusermail).editText?.text
-        val password=findViewById<TextInputLayout>(R.id.reguserpassword).editText?.text
 
         findViewById<TextView>(R.id.regButton).setOnClickListener()
         {
+            val mail=findViewById<TextInputLayout>(R.id.regusermail).editText?.text
+            val password=findViewById<TextInputLayout>(R.id.reguserpassword).editText?.text
+
             val petapplication=application as PetApplication
             val petservice=petapplication.api
 
@@ -43,15 +45,45 @@ class RegisterActivity : AppCompatActivity() {
                     {
                         if(response.isSuccessful)
                         {
-
                             Toast.makeText(this@RegisterActivity, "Registration success!", Toast.LENGTH_SHORT).show()
-                            val intent=Intent(this@RegisterActivity,LoginActivity::class.java)
-                            startActivity(intent)
-                            finish()
+
+                            petservice.userLogin(user).enqueue(object : Callback<User?> {
+                                override fun onResponse(
+                                    call: Call<User?>,
+                                    response: Response<User?>
+                                ) {
+                                    val userValue=response.body()!!
+                                    val sharedPreferences=getSharedPreferences("user",Context.MODE_PRIVATE)
+                                    val editor=sharedPreferences.edit()
+                                    editor.apply()
+                                    {
+                                        putInt("id",userValue.id)
+                                        putString("token",userValue.token)
+                                        putLong("memberSince",userValue.memberSince)
+                                        putString("mail",userValue.email)
+                                    }.apply()
+
+                                    val progressDialog=ProgressDialog(this@RegisterActivity,R.style.PetAppDialogStyle)
+                                    progressDialog.setTitle("Logging in")
+                                    progressDialog.setMessage("Loading")
+                                    progressDialog.show()
+
+                                    val intent=Intent(this@RegisterActivity,HomeNavActivity::class.java)
+                                    startActivity(intent)
+                                    finish()
+                                }
+
+                                override fun onFailure(call: Call<User?>, t: Throwable) {
+                                    Toast.makeText(this@RegisterActivity,"Problem in Login",Toast.LENGTH_LONG).show()
+                                    val intent=Intent(this@RegisterActivity,LoginActivity::class.java)
+                                    startActivity(intent)
+                                    finish()
+                                }
+                            })
                         }
                         else
                         {
-                            findViewById<TextView>(R.id.regerrorMsg).text="Email is already Taken"
+                            Toast.makeText(this@RegisterActivity,"Email id already Taken",Toast.LENGTH_LONG).show()
                         }
                     }
 
