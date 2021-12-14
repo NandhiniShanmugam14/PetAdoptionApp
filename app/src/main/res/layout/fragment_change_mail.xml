@@ -1,14 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.changemail.ChangeMailFragment">
+    tools:context=".LoginActivity">
 
-    <!-- TODO: Update blank fragment layout -->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/usermail"
+        style="@style/TextPet"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="50dp"
+        android:hint="Email"
+        app:boxCornerRadiusBottomEnd="10dp"
+        app:boxCornerRadiusBottomStart="10dp"
+        app:boxCornerRadiusTopEnd="10dp"
+        app:boxCornerRadiusTopStart="10dp"
+        app:boxStrokeColor="#FF4848"
+        app:endIconMode="clear_text"
+        app:expandedHintEnabled="false"
+        app:hintTextAppearance="@style/TextLabel"
+        app:hintTextColor="#FF4848"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/changeemail"
+        app:startIconDrawable="@drawable/ic_mail">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Input your email"
+            android:textColor="#808080"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:textSize="24sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/confirmchange"
+        android:layout_width="340dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/button_background"
+        android:text="Confirm change"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.117"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usermail" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/changeemail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="142dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="211dp"
+        android:text="Change email"
+        android:textColor="#E35353"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

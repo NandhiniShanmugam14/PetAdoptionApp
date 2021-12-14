@@ -112,7 +112,7 @@
         app:layout_constraintTop_toBottomOf="@+id/userpassword" />
 
     <TextView
-        android:id="@+id/loginButton"
+        android:id="@+id/confirmchange"
         android:layout_width="340dp"
         android:layout_height="40dp"
         android:layout_marginTop="12dp"
@@ -139,7 +139,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.262"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+        app:layout_constraintTop_toBottomOf="@+id/confirmchange" />
 
     <TextView
         android:id="@+id/textView"
