@@ -22,7 +22,7 @@ class HomeFragment : Fragment() {
         val view=inflater.inflate(R.layout.fragment_home, container, false)
 
         val adapter = RecyclerAdapter()
-        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
+        val recyclerView = view.findViewById<RecyclerView>(R.id.recycleViewLogin)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         val petApplication = activity?.application as PetApplication
