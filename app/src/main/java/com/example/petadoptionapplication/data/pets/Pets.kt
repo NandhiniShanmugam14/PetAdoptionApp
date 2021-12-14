@@ -23,3 +23,7 @@ data class PetInterestList(
 data class PetInterests(
     var petInterests: List<PetInterestList>
 )
+
+data class SendPet(
+    var petId:Int
+)

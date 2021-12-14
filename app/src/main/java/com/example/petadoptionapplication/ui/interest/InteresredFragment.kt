@@ -1,5 +1,6 @@
 package com.example.petadoptionapplication.ui.interest
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -39,8 +40,13 @@ class InteresredFragment : Fragment() {
         val petApplication = activity?.application as PetApplication
         val petService = petApplication.api
 
+        val sharedPreferences=activity?.getSharedPreferences("user", Context.MODE_PRIVATE)
+        val token=sharedPreferences!!.getString("token",null)
+        val headerMap= mutableMapOf<String,String>()
+        headerMap["Authorization"]= "Bearer " + token
+
         CoroutineScope(Dispatchers.IO).launch {
-            petService.getPetInterests().enqueue(object : Callback<PetInterests?> {
+            petService.getPetInterests(headerMap).enqueue(object : Callback<PetInterests?> {
                 override fun onResponse(
                     call: Call<PetInterests?>,
                     response: Response<PetInterests?>
@@ -48,7 +54,7 @@ class InteresredFragment : Fragment() {
                     if(response.isSuccessful)
                     {
                         var decodedpetsInterests= response.body()!!.petInterests
-                        petService.getPets().enqueue(object : Callback<PetList?> {
+                        petService.getPets(headerMap).enqueue(object : Callback<PetList?> {
                             override fun onResponse(call: Call<PetList?>, response: Response<PetList?>) {
                                 if(response.isSuccessful)
                                 {

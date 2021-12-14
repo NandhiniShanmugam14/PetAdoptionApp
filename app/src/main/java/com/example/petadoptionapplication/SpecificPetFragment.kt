@@ -1,5 +1,6 @@
 package com.example.petadoptionapplication
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,7 +9,19 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.navigation.Navigation
+import com.example.petadoptionapplication.data.PetApplication
+import com.example.petadoptionapplication.data.pets.PetInterests
+import com.example.petadoptionapplication.data.pets.SendPet
 import com.squareup.picasso.Picasso
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class SpecificPetFragment : Fragment() {
 
@@ -39,10 +52,70 @@ class SpecificPetFragment : Fragment() {
         val image=view.findViewById<ImageView>(R.id.get_image)
         Picasso.get().load(arguments?.getString("url",null)).into(image)
 
-        if(arguments?.getInt("age",0)!!.toInt()>1)
-        {
-            view.findViewById<Button>(R.id.interest_button).text="I am interested in"
-        }
+        CoroutineScope(Dispatchers.IO).launch {
+            val petapplication=activity?.application as PetApplication
+            val petService=petapplication.api
+
+            val petId:Int= arguments?.getInt("id",0)!!
+
+            val sharedPreferences=activity?.getSharedPreferences("user", Context.MODE_PRIVATE)
+            val token=sharedPreferences!!.getString("token",null)
+            val headerMap= mutableMapOf<String,String>()
+            headerMap["Authorization"]= "Bearer " + token
+
+            petService.getPetInterests(headerMap).enqueue(object : Callback<PetInterests?> {
+                override fun onResponse(
+                    call: Call<PetInterests?>,
+                    response: Response<PetInterests?>
+                ) {
+                    if(response.isSuccessful)
+                    {
+                        val pets=response.body()!!.petInterests
+                        for(item in pets) {
+                            if (item.petId == petId) {
+                                view.findViewById<Button>(R.id.interest_button).isEnabled = false
+                                view.findViewById<Button>(R.id.interest_button).text = "Already Added"
+                                break
+                            }
+                            else
+                            {
+                                view.findViewById<Button>(R.id.interest_button).text="I am interested in"
+                            }
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<PetInterests?>, t: Throwable) {
+                    Toast.makeText(context,t.message, Toast.LENGTH_LONG).show()
+                }
+            })
+
+            view.findViewById<Button>(R.id.interest_button).setOnClickListener()
+            {
+                var sendPet=SendPet(petId)
+                petService.postInterest(sendPet,headerMap).enqueue(object : Callback<ResponseBody?> {
+                    override fun onResponse(
+                        call: Call<ResponseBody?>,
+                        response: Response<ResponseBody?>
+                    ) {
+                        if(response.isSuccessful)
+                        {
+                            Toast.makeText(context,"Added Successfully!!", Toast.LENGTH_LONG).show()
+                            Navigation.findNavController(view).navigate(R.id.nav_home)
+                        }
+                        else
+                        {
+                            Toast.makeText(context,"Something went wrong!!", Toast.LENGTH_LONG).show()
+                        }
+                    }
+
+                    override fun onFailure(call: Call<ResponseBody?>, t: Throwable) {
+                        Toast.makeText(context,t.message, Toast.LENGTH_LONG).show()
+                    }
+                })
+            }
+            }
+
         return view
     }
 }

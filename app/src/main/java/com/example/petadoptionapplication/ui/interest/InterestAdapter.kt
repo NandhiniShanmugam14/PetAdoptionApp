@@ -29,11 +29,12 @@ class InterestAdapter: RecyclerView.Adapter<InterestAdapter.MyViewHolder>() {
 
             if(item.petId==currentItem.id) {
                 holder.itemView.findViewById<TextView>(R.id.petint_name).text = currentItem.name
-                holder.itemView.findViewById<TextView>(R.id.petint_type).text =
-                    currentItem.type
-        holder.itemView.findViewById<TextView>(R.id.petint_age).text= currentItem.age.toString()
+                holder.itemView.findViewById<TextView>(R.id.petint_type).text = currentItem.type
+                holder.itemView.findViewById<TextView>(R.id.petint_age).text= currentItem.age.toString()
+
                 val imageview = holder.itemView.findViewById<ImageView>(R.id.petint_image)
                 Picasso.get().load(currentItem.url).into(imageview)
+
                 if (currentItem.age <= 1)
                 {
                     holder.itemView.findViewById<TextView>(R.id.yearint_txt).text = "year"

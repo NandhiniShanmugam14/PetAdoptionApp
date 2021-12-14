@@ -26,8 +26,9 @@ class OthersFragment : Fragment() {
 
         val sharedPreferences= activity?.getSharedPreferences("user", Context.MODE_PRIVATE)
 
-        val email= sharedPreferences!!.getLong("email",0)
-        val reservationsAt= sharedPreferences!!.getLong("reservationsAt",0)
+        val token=sharedPreferences!!.getString("token",null)
+        val headerMap= mutableMapOf<String,String>()
+        headerMap["Authorization"]= "Bearer " + token
 
         val adapter = OthersAdapter()
         val recyclerView = view.findViewById<RecyclerView>(R.id.recycleViewLogin)
@@ -37,7 +38,7 @@ class OthersFragment : Fragment() {
         val petService = petApplication.api
 
         CoroutineScope(Dispatchers.IO).launch {
-            val decodedusers = petService.getUsers()
+            val decodedusers = petService.getUsers(headerMap)
             withContext(Dispatchers.Main)
             {
                 adapter.setData(decodedusers)

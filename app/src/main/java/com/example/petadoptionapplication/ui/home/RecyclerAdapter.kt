@@ -1,10 +1,13 @@
 package com.example.petadoptionapplication.ui.home
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.petadoptionapplication.R
 import com.example.petadoptionapplication.data.pets.Pets
@@ -36,6 +39,17 @@ class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>() {
         else
         {
             holder.itemView.findViewById<TextView>(R.id.year_txt).text = "years"
+        }
+        holder.itemView.findViewById<ConstraintLayout>(R.id.relativeLayout).setOnClickListener()
+        {
+            val bundle=Bundle()
+            bundle.putInt("id",currentItem.id)
+            bundle.putString("name",currentItem.name)
+            bundle.putString("vaccinated",currentItem.vaccinated)
+            bundle.putString("type",currentItem.type)
+            bundle.putString("url",currentItem.url)
+            bundle.putInt("age",currentItem.age)
+            Navigation.findNavController(holder.itemView).navigate(R.id.nav_specific,bundle)
         }
     }
 

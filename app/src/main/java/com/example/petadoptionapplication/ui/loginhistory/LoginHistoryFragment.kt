@@ -29,6 +29,10 @@ class LoginHistoryFragment : Fragment() {
 
         val sharedPreferences= activity?.getSharedPreferences("user", Context.MODE_PRIVATE)
 
+        val token=sharedPreferences!!.getString("token",null)
+        val headerMap= mutableMapOf<String,String>()
+        headerMap["Authorization"]= "Bearer " + token
+
         val memberSince= sharedPreferences!!.getLong("memberSince",0)
         val instant= java.time.Instant.ofEpochMilli(memberSince).atZone(ZoneId.of("US/Pacific"))
             .toLocalDateTime()
@@ -42,7 +46,7 @@ class LoginHistoryFragment : Fragment() {
         val petService = petApplication.api
 
         CoroutineScope(Dispatchers.IO).launch {
-            val decodedloginentries = petService.getLoginEntries()
+            val decodedloginentries = petService.getLoginEntries(headerMap)
             withContext(Dispatchers.Main)
             {
                 adapter.setData(decodedloginentries)
