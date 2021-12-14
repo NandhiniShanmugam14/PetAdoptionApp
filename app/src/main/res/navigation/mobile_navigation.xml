@@ -28,17 +28,17 @@
     <fragment
         android:id="@+id/nav_delete"
         android:name="com.example.petadoptionapplication.ui.accountdelete.AccountDeleteFragment"
-        android:label="fragment_account_delete"
+        android:label="Delete Account"
         tools:layout="@layout/fragment_account_delete" />
     <fragment
         android:id="@+id/nav_change_mail"
         android:name="com.example.petadoptionapplication.ui.changemail.ChangeMailFragment"
-        android:label="fragment_change_mail"
+        android:label="Change Email"
         tools:layout="@layout/fragment_change_mail" />
     <fragment
         android:id="@+id/nav_login_history"
         android:name="com.example.petadoptionapplication.ui.loginhistory.LoginHistoryFragment"
-        android:label="fragment_login_history"
+        android:label="Login History"
         tools:layout="@layout/fragment_login_history" />
 
 </navigation>
