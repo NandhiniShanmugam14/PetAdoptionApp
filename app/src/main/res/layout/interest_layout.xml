@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_margin="10dp"
+    app:cardElevation="3dp"
+    app:contentPadding="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="255dp"
+        android:background="@drawable/outline_background_button"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/petint_image"
+            android:layout_width="165dp"
+            android:layout_height="127dp"
+            android:adjustViewBounds="true"
+            android:maxWidth="65dp"
+            android:maxHeight="90dp"
+            android:scaleType="fitXY"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/petint_name"
+            android:layout_width="169dp"
+            android:layout_height="36dp"
+            android:layout_marginLeft="40dp"
+            android:textColor="#E35353"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@+id/petint_image"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/petint_type"
+            android:layout_width="169dp"
+            android:layout_height="36dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#E35353"
+            android:textSize="24sp"
+            app:layout_constraintStart_toEndOf="@+id/petint_image"
+            app:layout_constraintTop_toBottomOf="@+id/petint_name" />
+
+        <TextView
+            android:id="@+id/petint_age"
+            android:layout_width="20dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#E35353"
+            android:textSize="24sp"
+            app:layout_constraintStart_toEndOf="@+id/petint_image"
+            app:layout_constraintTop_toBottomOf="@+id/petint_type" />
+
+        <TextView
+            android:id="@+id/yearint_txt"
+            android:layout_width="60dp"
+            android:layout_height="31dp"
+            android:layout_marginTop="8dp"
+            android:textColor="#E35353"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/petint_age"
+            app:layout_constraintTop_toBottomOf="@+id/petint_type" />
+
+        <TextView
+            android:id="@+id/loginButton"
+            android:layout_width="340dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="184dp"
+            android:background="@drawable/button_background"
+            android:text="Not interested any more "
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="22dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

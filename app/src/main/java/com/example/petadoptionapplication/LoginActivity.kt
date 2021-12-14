@@ -28,7 +28,7 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        findViewById<TextView>(R.id.loginButton).setOnClickListener()
+        findViewById<TextView>(R.id.confirmchange).setOnClickListener()
         {
             val mail=findViewById<TextInputLayout>(R.id.usermail).editText?.text
             val password=findViewById<TextInputLayout>(R.id.userpassword).editText?.text
