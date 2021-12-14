@@ -1,13 +1,13 @@
 package com.example.petadoptionapplication.data
 
-import com.example.petadoptionapplication.data.LoginHistory.loginEntriesList
-import com.example.petadoptionapplication.data.others.usersList
+import com.example.petadoptionapplication.data.pets.PetInterests
 import com.example.petadoptionapplication.data.pets.PetList
 import com.example.petadoptionapplication.data.user.User
 import com.example.petadoptionapplication.data.user.UserReq
 import okhttp3.ResponseBody
 
 import retrofit2.Call
+import retrofit2.Response
 
 import retrofit2.http.*
 
@@ -27,21 +27,19 @@ interface ApiInterface {
         "Authorization: Bearer 048ba226-8087-4fb0-ac22-f52cb2c135b7"
     )
     @GET("pets")
-    suspend fun getPets(): PetList
+    fun getPets(): Call<PetList>
 
+    //Get PetInterests
     @Headers(
         "Content-Type: application/json",
         "Authorization: Bearer 048ba226-8087-4fb0-ac22-f52cb2c135b7"
     )
-    @GET("users/me/loginHistory")
-    suspend fun getLoginEntries():loginEntriesList
+    @GET("users/me/petInterests")
+    fun getPetInterests(): Call<PetInterests>
 
-    @Headers(
-        "Content-Type: application/json",
-        "Authorization: Bearer 048ba226-8087-4fb0-ac22-f52cb2c135b7"
-    )
-    @GET("users")
-    suspend fun getUsers(): usersList
+    //DeletePetInterest
+    @DELETE("users/me/petInterests/{interestId}")
+    fun deleteInterest(@Path("interestId") interestId: Int):Call<ResponseBody>
 
 }
 

@@ -5,15 +5,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.petadoptionapplication.R
 import com.example.petadoptionapplication.data.PetApplication
+import com.example.petadoptionapplication.data.pets.PetInterestList
+import com.example.petadoptionapplication.data.pets.PetInterests
+import com.example.petadoptionapplication.data.pets.PetList
+import com.example.petadoptionapplication.data.pets.Pets
 import com.example.petadoptionapplication.ui.home.RecyclerAdapter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class InteresredFragment : Fragment() {
 
@@ -32,13 +40,46 @@ class InteresredFragment : Fragment() {
         val petService = petApplication.api
 
         CoroutineScope(Dispatchers.IO).launch {
-            val decodedpetsInterests = petService.getPetInterests()
-            val decodedpets = petService.getPets()
+            petService.getPetInterests().enqueue(object : Callback<PetInterests?> {
+                override fun onResponse(
+                    call: Call<PetInterests?>,
+                    response: Response<PetInterests?>
+                ) {
+                    if(response.isSuccessful)
+                    {
+                        var decodedpetsInterests= response.body()!!.petInterests
+                        petService.getPets().enqueue(object : Callback<PetList?> {
+                            override fun onResponse(call: Call<PetList?>, response: Response<PetList?>) {
+                                if(response.isSuccessful)
+                                {
+                                    var decodedpets=response.body()!!.pets
+                                    if (decodedpets.isEmpty())
+                                    {
+                                        Toast.makeText(context,"Something went wrong", Toast.LENGTH_LONG).show()
+                                    }
+                                    else
+                                    {
+                                        adapter.setData(decodedpets,decodedpetsInterests)
+                                    }
+                                }
+                                else
+                                {
+                                    Toast.makeText(context,"Something went wrong", Toast.LENGTH_LONG).show()
+                                }
+                            }
 
-            withContext(Dispatchers.Main)
-            {
-                adapter.setData(decodedpets.pets,decodedpetsInterests.petInterests)
-            }
+                            override fun onFailure(call: Call<PetList?>, t: Throwable) {
+                                Toast.makeText(context,t.message, Toast.LENGTH_LONG).show()
+                            }
+
+                        })
+                    }
+                }
+
+                override fun onFailure(call: Call<PetInterests?>, t: Throwable) {
+                    Toast.makeText(context,"Something went wrong", Toast.LENGTH_LONG).show()
+                }
+            })
         }
 
         return view

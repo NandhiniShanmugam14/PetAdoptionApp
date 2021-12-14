@@ -7,9 +7,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.petadoptionapplication.R
-import com.example.petadoptionapplication.data.pets.PetList
 import com.example.petadoptionapplication.data.pets.Pets
 import com.squareup.picasso.Picasso
+import retrofit2.Call
 
 class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>() {
     var petList = emptyList<Pets>()
@@ -43,9 +43,9 @@ class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>() {
         return petList.size
     }
 
-    fun setData(pets: PetList)
+    fun setData(pets: List<Pets>)
     {
-        this.petList=pets.pets
+        this.petList=pets
         notifyDataSetChanged()
     }
 }
