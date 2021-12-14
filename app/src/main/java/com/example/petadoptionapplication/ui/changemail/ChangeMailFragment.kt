@@ -14,7 +14,7 @@ class ChangeMailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val view= inflater.inflate(R.layout.fragment_change_mail, container, false)
+        val view = inflater.inflate(R.layout.fragment_change_mail, container, false)
 
         return view
     }

@@ -11,3 +11,7 @@ data class UserReq(
     val email: String?,
     val password: String?
 )
+
+data class ChangeEmail(
+    val email:String?,
+)
