@@ -26,5 +26,7 @@ interface ApiInterface {
     )
     @GET("pets")
     suspend fun getPets(): PetList
+
+
 }
 
