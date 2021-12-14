@@ -29,6 +29,14 @@ class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>() {
         holder.itemView.findViewById<TextView>(R.id.pet_age).text= currentItem.age.toString()
         val imageview= holder.itemView.findViewById<ImageView>(R.id.pet_image)
         Picasso.get().load(currentItem.url).into(imageview)
+        if (currentItem.age <= 1)
+        {
+            holder.itemView.findViewById<TextView>(R.id.year_txt).text = "year"
+        }
+        else
+        {
+            holder.itemView.findViewById<TextView>(R.id.year_txt).text = "years"
+        }
     }
 
     override fun getItemCount(): Int {

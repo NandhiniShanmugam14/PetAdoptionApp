@@ -12,7 +12,6 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.navigation.Navigation
-import com.example.petadoptionapplication.ChangeMailFragment
 import com.example.petadoptionapplication.LoginActivity
 import com.example.petadoptionapplication.R
 import java.time.ZoneId
