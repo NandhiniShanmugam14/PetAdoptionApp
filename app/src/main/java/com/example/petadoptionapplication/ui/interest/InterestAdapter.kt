@@ -1,5 +1,6 @@
 package com.example.petadoptionapplication.ui.interest
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.petadoptionapplication.R
+import com.example.petadoptionapplication.data.PetApplication
 import com.example.petadoptionapplication.data.pets.PetInterestList
 import com.example.petadoptionapplication.data.pets.Pets
 import com.squareup.picasso.Picasso
@@ -43,6 +45,7 @@ class InterestAdapter: RecyclerView.Adapter<InterestAdapter.MyViewHolder>() {
                 {
                     holder.itemView.findViewById<TextView>(R.id.yearint_txt).text = "years"
                 }
+
             }
         }
     }
@@ -57,4 +60,5 @@ class InterestAdapter: RecyclerView.Adapter<InterestAdapter.MyViewHolder>() {
         this.newpetInterests=_newpets
         notifyDataSetChanged()
     }
+
 }

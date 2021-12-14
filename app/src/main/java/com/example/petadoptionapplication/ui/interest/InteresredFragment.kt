@@ -37,6 +37,7 @@ class InteresredFragment : Fragment() {
         val recyclerView = view.findViewById<RecyclerView>(R.id.petInterestView)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
         val petApplication = activity?.application as PetApplication
         val petService = petApplication.api
 

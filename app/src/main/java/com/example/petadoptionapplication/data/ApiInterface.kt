@@ -50,6 +50,10 @@ interface ApiInterface {
     @POST("users/me/petInterests")
     fun postInterest(@Body send:SendPet,@HeaderMap headerMap: MutableMap<String, String>):Call<ResponseBody>
 
+    @Headers("Content-Type: application/json")
+    @DELETE("users/me")
+    fun deleteUser(@HeaderMap headerMap: MutableMap<String, String>):Call<ResponseBody>
+
 
 }
 
