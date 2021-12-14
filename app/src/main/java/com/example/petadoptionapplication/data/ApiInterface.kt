@@ -20,11 +20,9 @@ interface ApiInterface {
     fun userRegister(@Body user: UserReq):Call<ResponseBody>
 
     //Pets
-    @Headers(
-        "Content-Type: application/json",
-        "Authorization: Bearer 048ba226-8087-4fb0-ac22-f52cb2c135b7"
-    )
+    @Headers("Content-Type: application/json")
     @GET("pets")
-    suspend fun getPets(): PetList
+    suspend fun getPets(@HeaderMap headers:Map<String, String>): PetList
+
 }
 

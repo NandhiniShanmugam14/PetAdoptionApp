@@ -40,5 +40,10 @@
         android:name="com.example.petadoptionapplication.ui.loginhistory.LoginHistoryFragment"
         android:label="Login History"
         tools:layout="@layout/fragment_login_history" />
+    <fragment
+        android:id="@+id/nav_specific"
+        android:name="com.example.petadoptionapplication.SpecificPetFragment"
+        android:label="Pets"
+        tools:layout="@layout/fragment_specific_pet" />
 
 </navigation>

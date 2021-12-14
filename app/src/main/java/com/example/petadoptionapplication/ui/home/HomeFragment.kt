@@ -1,5 +1,6 @@
 package com.example.petadoptionapplication.ui.home
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -29,7 +30,13 @@ class HomeFragment : Fragment() {
         val petService = petApplication.api
 
         CoroutineScope(Dispatchers.IO).launch {
-            val decodedpets = petService.getPets()
+            val headerMap = mutableMapOf<String, String>()
+            val sharedPreferences=activity?.getSharedPreferences("user", Context.MODE_PRIVATE)
+
+            headerMap["Authorization"]="Bearer "+sharedPreferences!!.getString("token",null)
+
+
+            val decodedpets = petService.getPets(headerMap)
             withContext(Dispatchers.Main)
             {
                 adapter.setData(decodedpets)
