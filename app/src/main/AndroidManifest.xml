@@ -13,14 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PetAdoptionApplication">
         <activity
-            android:name=".ProfileActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity_profile"
-            android:exported="false" />
-        <activity
-            android:name=".UserActivity"
-            android:exported="false" />
+            android:name=".HomeNavActivity"
+            android:exported="false"
+            android:label="@string/title_activity_home_nav"
+            android:theme="@style/Theme.PetAdoptionApplication.NoActionBar" />
+        <!-- <activity -->
+        <!-- android:name=".UserActivity" -->
+        <!-- android:exported="false" /> -->
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />
