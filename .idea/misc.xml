@@ -3,6 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android Development/PetAdoptionApp/app/src/main/res/drawable/color_cursor.xml" value="0.19583333333333333" />
+        <entry key="..\:/Android Development/PetAdoptionApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.17864583333333334" />
+        <entry key="..\:/Android Development/PetAdoptionApp/app/src/main/res/drawable/ic_other_users.xml" value="0.19583333333333333" />
+        <entry key="..\:/Android Development/PetAdoptionApp/app/src/main/res/drawable/outline_background_button.xml" value="0.19583333333333333" />
+        <entry key="..\:/Android Development/PetAdoptionApp/app/src/main/res/drawable/parallelogram.xml" value="0.19583333333333333" />
+        <entry key="..\:/Android Development/PetAdoptionApp/app/src/main/res/layout/activity_home_nav.xml" value="0.1796875" />
+        <entry key="..\:/Android Development/PetAdoptionApp/app/src/main/res/layout/activity_login.xml" value="0.33260393873085337" />
+        <entry key="..\:/Android Development/PetAdoptionApp/app/src/main/res/layout/activity_main.xml" value="0.1640625" />
+        <entry key="..\:/Android Development/PetAdoptionApp/app/src/main/res/layout/activity_register.xml" value="0.3333333333333333" />
+        <entry key="..\:/Android Development/PetAdoptionApp/app/src/main/res/layout/activity_splash.xml" value="0.3333333333333333" />
+        <entry key="..\:/Android Development/PetAdoptionApp/app/src/main/res/layout/content_home_nav.xml" value="0.1640625" />
+        <entry key="..\:/Android Development/PetAdoptionApp/app/src/main/res/layout/fragment_account_delete.xml" value="0.1640625" />
+        <entry key="..\:/Android Development/PetAdoptionApp/app/src/main/res/layout/fragment_change_mail.xml" value="0.1640625" />
+        <entry key="..\:/Android Development/PetAdoptionApp/app/src/main/res/layout/fragment_interesred.xml" value="0.1" />
+        <entry key="..\:/Android Development/PetAdoptionApp/app/src/main/res/layout/fragment_login_history.xml" value="0.1640625" />
+        <entry key="..\:/Android Development/PetAdoptionApp/app/src/main/res/layout/fragment_profile.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/PetAdoptionApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/PetAdoptionApp/app/src/main/res/drawable/background_color.xml" value="0.18020833333333333" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/PetAdoptionApp/app/src/main/res/drawable/button_background.xml" value="0.1" />
@@ -21,19 +37,13 @@
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/PetAdoptionApplication/app/src/main/res/layout/activity_home_nav.xml" value="0.1" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/PetAdoptionApplication/app/src/main/res/layout/activity_login.xml" value="0.12454710144927536" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/PetAdoptionApplication/app/src/main/res/layout/activity_main.xml" value="0.12182971014492754" />
-        <entry key="..\:/Users/Administrator/AndroidStudioProjects/PetAdoptionApplication/app/src/main/res/layout/activity_register.xml" value="0.10643115942028986" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/PetAdoptionApplication/app/src/main/res/layout/activity_splash.xml" value="0.12182971014492754" />
-        <entry key="..\:/Users/Administrator/AndroidStudioProjects/PetAdoptionApplication/app/src/main/res/layout/app_bar_home_nav.xml" value="0.11865942028985507" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/PetAdoptionApplication/app/src/main/res/layout/card_layout.xml" value="0.1" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/PetAdoptionApplication/app/src/main/res/layout/content_home_nav.xml" value="0.1" />
-        <entry key="..\:/Users/Administrator/AndroidStudioProjects/PetAdoptionApplication/app/src/main/res/layout/fragment_account_delete.xml" value="0.11865942028985507" />
-        <entry key="..\:/Users/Administrator/AndroidStudioProjects/PetAdoptionApplication/app/src/main/res/layout/fragment_home.xml" value="0.3333333333333333" />
-        <entry key="..\:/Users/Administrator/AndroidStudioProjects/PetAdoptionApplication/app/src/main/res/layout/fragment_interesred.xml" value="0.4466666666666667" />
-        <entry key="..\:/Users/Administrator/AndroidStudioProjects/PetAdoptionApplication/app/src/main/res/layout/fragment_login_history.xml" value="0.10144927536231885" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/PetAdoptionApplication/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/PetAdoptionApplication/app/src/main/res/layout/fragment_interesred.xml" value="0.1" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/PetAdoptionApplication/app/src/main/res/layout/fragment_others.xml" value="0.1" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/PetAdoptionApplication/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
-        <entry key="..\:/Users/Administrator/AndroidStudioProjects/PetAdoptionApplication/app/src/main/res/layout/interest_layout.xml" value="0.14666666666666667" />
-        <entry key="..\:/Users/Administrator/AndroidStudioProjects/PetAdoptionApplication/app/src/main/res/layout/nav_header_home_nav.xml" value="0.11865942028985507" />
       </map>
     </option>
   </component>
@@ -42,5 +52,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.3333333333333333" />
+      </ProjectState>
+    </option>
   </component>
 </project>

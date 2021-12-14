@@ -1,12 +1,11 @@
 package com.example.petadoptionapplication
 
+import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
+import android.widget.*
 import com.example.petadoptionapplication.data.PetApplication
 import com.example.petadoptionapplication.data.user.User
 import com.example.petadoptionapplication.data.user.UserReq
@@ -23,9 +22,6 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        val mail=findViewById<TextInputLayout>(R.id.usermail).editText?.text
-        val password=findViewById<TextInputLayout>(R.id.userpassword).editText?.text
-
         findViewById<TextView>(R.id.registerButton).setOnClickListener()
         {
             val intent=Intent(this@LoginActivity,RegisterActivity::class.java)
@@ -34,6 +30,9 @@ class LoginActivity : AppCompatActivity() {
 
         findViewById<TextView>(R.id.loginButton).setOnClickListener()
         {
+            val mail=findViewById<TextInputLayout>(R.id.usermail).editText?.text
+            val password=findViewById<TextInputLayout>(R.id.userpassword).editText?.text
+
             val petapplication=application as PetApplication
             val petservice=petapplication.api
             val user=UserReq(mail.toString(),password.toString())
@@ -54,18 +53,22 @@ class LoginActivity : AppCompatActivity() {
                                 putString("mail",userValue.email)
                             }.apply()
 
+                            val progressDialog=ProgressDialog(this@LoginActivity,R.style.PetAppDialogStyle)
+                            progressDialog.setTitle("Logging in")
+                            progressDialog.setMessage("Loading")
+                            progressDialog.show()
                             val intent=Intent(this@LoginActivity,HomeNavActivity::class.java)
                             startActivity(intent)
                             finish()
                         }
                         else
                         {
-                            findViewById<TextView>(R.id.errorMsg).text="Invalid User or Password"
+                            Toast.makeText(this@LoginActivity,"Invalid Mail or Password",Toast.LENGTH_LONG).show()
                         }
                     }
 
                     override fun onFailure(call: Call<User?>, t: Throwable) {
-                        findViewById<TextView>(R.id.errorMsg).text="Invalid User or Password"
+                        findViewById<TextView>(R.id.errorMsg).text=t.message
                     }
                 })
             }
