@@ -1,5 +1,6 @@
 package com.example.petadoptionapplication.data
 
+import com.example.petadoptionapplication.data.pets.PetInterests
 import com.example.petadoptionapplication.data.pets.PetList
 import com.example.petadoptionapplication.data.user.User
 import com.example.petadoptionapplication.data.user.UserReq
@@ -26,6 +27,14 @@ interface ApiInterface {
     )
     @GET("pets")
     suspend fun getPets(): PetList
+
+    //PetInterests
+    @Headers(
+        "Content-Type: application/json",
+        "Authorization: Bearer 048ba226-8087-4fb0-ac22-f52cb2c135b7"
+    )
+    @GET("users/me/petInterests")
+    suspend fun getPetInterests(): PetInterests
 
 
 }
