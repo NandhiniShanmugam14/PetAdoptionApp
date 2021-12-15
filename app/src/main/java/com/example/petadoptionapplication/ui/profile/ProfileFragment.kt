@@ -72,7 +72,7 @@ class ProfileFragment : Fragment() {
             Navigation.findNavController(view).navigate(R.id.nav_delete)
         }
 
-        view.findViewById<ImageView>(R.id.picCapture).setOnClickListener()
+        view.findViewById<TextView>(R.id.add).setOnClickListener()
         {
 
             val intent=Intent(MediaStore.ACTION_IMAGE_CAPTURE)
@@ -111,6 +111,7 @@ class ProfileFragment : Fragment() {
                 putString("token",token)
                 putString("photo",encode)
             }.apply()
+            activity?.recreate()
         }
     }
 }

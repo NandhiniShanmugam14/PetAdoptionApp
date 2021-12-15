@@ -13,8 +13,8 @@
     android:paddingBottom="12dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-    <ImageView
-        android:id="@+id/LogoNav"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/logoNav"
         android:layout_width="70dp"
         android:layout_height="69dp"
         android:layout_marginTop="55dp"
@@ -32,10 +32,10 @@
         android:text="@string/nav_header_subtitle"
         android:textColor="#808080"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LogoNav" />
+        app:layout_constraintTop_toBottomOf="@+id/logoNav" />
 
     <TextView
-        android:id="@+id/LogoText"
+        android:id="@+id/logoText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="26dp"
@@ -44,8 +44,8 @@
         android:textColor="#FFFFFF"
         android:textSize="29sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/LogoNav"
-        app:layout_constraintTop_toTopOf="@+id/LogoNav" />
+        app:layout_constraintStart_toStartOf="@+id/logoNav"
+        app:layout_constraintTop_toTopOf="@+id/logoNav" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

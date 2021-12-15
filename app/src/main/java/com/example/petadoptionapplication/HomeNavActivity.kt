@@ -32,21 +32,22 @@ class HomeNavActivity : AppCompatActivity() {
         val navigationView : NavigationView = findViewById(R.id.nav_view)
         val headerView : View = navigationView.getHeaderView(0)
         val navUserEmail : TextView = headerView.findViewById(R.id.nav_mail)
-        val logoLetter : TextView = headerView.findViewById(R.id.LogoText)
+        val logoLetter : TextView = headerView.findViewById(R.id.logoText)
+        val imageView:ImageView=headerView.findViewById(R.id.logoNav)
+        val textView:TextView=headerView.findViewById(R.id.logoText)
         val sharedPreferences=getSharedPreferences("user", Context.MODE_PRIVATE)
         navUserEmail.text=sharedPreferences.getString("mail",null)
         logoLetter.text = sharedPreferences.getString("mail", null)?.substring(0,1)?.uppercase()
 
         val token=sharedPreferences.getString("token",null)
-
-//        val pic=getSharedPreferences("photos",Context.MODE_PRIVATE)?.getString("photo",null)
-//        val getToken=getSharedPreferences("photos",Context.MODE_PRIVATE)?.getString("token",null)
-//        if(pic!=null && token==getToken) {
-//            val decoded = Base64.decode(pic,0)
-//            val image = BitmapFactory.decodeByteArray(decoded,0,decoded.size)
-//            findViewById<ImageView>(R.id.LogoNav).setImageBitmap(image)
-//            findViewById<TextView>(R.id.LogoText).text = ""
-//        }
+        val pic=getSharedPreferences("photos",Context.MODE_PRIVATE)?.getString("photo",null)
+        val getToken=getSharedPreferences("photos",Context.MODE_PRIVATE)?.getString("token",null)
+        if(pic!=null && token==getToken) {
+            val decoded = Base64.decode(pic,0)
+            val image = BitmapFactory.decodeByteArray(decoded,0,decoded.size)
+            imageView.setImageBitmap(image)
+            textView.text = ""
+        }
 
 
         val drawerLayout: DrawerLayout = binding.drawerLayout
