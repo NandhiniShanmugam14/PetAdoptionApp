@@ -1,14 +1,19 @@
 package com.example.petadoptionapplication
 
+import android.app.Activity
 import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.method.PasswordTransformationMethod
+import android.view.View
 import android.widget.*
+import com.example.petadoptionapplication.data.AsteriskPasswordTransformationMethod
 import com.example.petadoptionapplication.data.PetApplication
 import com.example.petadoptionapplication.data.user.User
 import com.example.petadoptionapplication.data.user.UserReq
+import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -27,6 +32,7 @@ class LoginActivity : AppCompatActivity() {
             val intent=Intent(this@LoginActivity,RegisterActivity::class.java)
             startActivity(intent)
         }
+        findViewById<TextInputEditText>(R.id.masked_password).transformationMethod=AsteriskPasswordTransformationMethod()
 
         findViewById<TextView>(R.id.confirmchange).setOnClickListener()
         {

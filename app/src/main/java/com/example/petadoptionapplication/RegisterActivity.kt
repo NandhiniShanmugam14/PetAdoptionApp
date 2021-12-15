@@ -8,9 +8,11 @@ import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
 import com.example.petadoptionapplication.data.ApiInterface
+import com.example.petadoptionapplication.data.AsteriskPasswordTransformationMethod
 import com.example.petadoptionapplication.data.PetApplication
 import com.example.petadoptionapplication.data.user.User
 import com.example.petadoptionapplication.data.user.UserReq
+import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -24,13 +26,13 @@ class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+        findViewById<TextInputEditText>(R.id.masked_reg_pass).transformationMethod= AsteriskPasswordTransformationMethod()
 
 
         findViewById<TextView>(R.id.regButton).setOnClickListener()
         {
             val mail=findViewById<TextInputLayout>(R.id.regusermail).editText?.text
             val password=findViewById<TextInputLayout>(R.id.reguserpassword).editText?.text
-
             val petapplication=application as PetApplication
             val petservice=petapplication.api
 
