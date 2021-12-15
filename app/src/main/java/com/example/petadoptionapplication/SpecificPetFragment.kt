@@ -33,23 +33,23 @@ class SpecificPetFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view= inflater.inflate(R.layout.fragment_specific_pet, container, false)
-        view.findViewById<TextView>(R.id.get_name).text="Name: "+arguments?.getString("name",null)
-        view.findViewById<TextView>(R.id.get_type).text="Type:"+arguments?.getString("type",null)
+        view.findViewById<TextView>(R.id.get_name).text=arguments?.getString("name",null)
+        view.findViewById<TextView>(R.id.get_type).text=arguments?.getString("type",null)
         if(arguments?.getInt("age",0)!! >1)
         {
-            view.findViewById<TextView>(R.id.get_age).text="Age: "+arguments?.getInt("age",0)+"years"
+            view.findViewById<TextView>(R.id.get_age).text= arguments?.getInt("age",0).toString()
         }
         else if(arguments?.getInt("age",0)==1)
         {
-            view.findViewById<TextView>(R.id.get_age).text="Age: "+arguments?.getInt("age",0)+"year"
+            view.findViewById<TextView>(R.id.get_age).text=arguments?.getInt("age",0).toString()
         }
         if(arguments?.getString("vaccinated",null)!!.toInt()>=1)
         {
-            view.findViewById<TextView>(R.id.get_vaccine).text="Vaccinated: Yes"
+            view.findViewById<TextView>(R.id.get_vaccine).text="Yes"
         }
         else
         {
-            view.findViewById<TextView>(R.id.get_vaccine).text="Vaccinated: No"
+            view.findViewById<TextView>(R.id.get_vaccine).text="No"
         }
         val image=view.findViewById<ImageView>(R.id.get_image)
         Picasso.get().load(arguments?.getString("url",null)).into(image)
