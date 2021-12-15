@@ -1,5 +1,6 @@
 package com.example.petadoptionapplication
 
+import android.app.ProgressDialog
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,6 +11,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.app.ActivityCompat.recreate
 import androidx.navigation.Navigation
 import com.example.petadoptionapplication.data.PetApplication
 import com.example.petadoptionapplication.data.pets.PetInterests
@@ -71,6 +73,10 @@ class SpecificPetFragment : Fragment() {
                     if(response.isSuccessful)
                     {
                         val pets=response.body()!!.petInterests
+                        if(pets.isEmpty())
+                        {
+                            view.findViewById<Button>(R.id.interest_button).text="I am interested in"
+                        }
                         for(item in pets) {
                             if (item.petId == petId) {
                                 view.findViewById<Button>(R.id.interest_button).isEnabled = false
@@ -101,7 +107,11 @@ class SpecificPetFragment : Fragment() {
                         if(response.isSuccessful)
                         {
                             Toast.makeText(context,"Added Successfully!!", Toast.LENGTH_LONG).show()
-                            Navigation.findNavController(view).navigate(R.id.nav_home)
+                            val progressDialog= ProgressDialog(context,R.style.PetAppDialogStyle)
+                            progressDialog.setTitle("Adding Pet Interest")
+                            progressDialog.setMessage("Loading")
+                            progressDialog.show()
+                            activity!!.recreate()
                         }
                         else
                         {

@@ -62,7 +62,7 @@ class ChangeMailFragment : Fragment() {
                             }.apply()
                             Navigation.findNavController(view).navigate(R.id.nav_home)
                             val progressDialog= ProgressDialog(view.context,R.style.PetAppDialogStyle)
-                            progressDialog.setTitle("Logging in")
+                            progressDialog.setTitle("Changing Mail")
                             progressDialog.setMessage("Loading")
                             progressDialog.show()
                             activity?.recreate()

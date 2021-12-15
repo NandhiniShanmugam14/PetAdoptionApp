@@ -13,7 +13,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="31dp"
+        android:layout_marginTop="72dp"
         android:layout_marginEnd="50dp"
         android:hint="Email"
         app:boxCornerRadiusBottomEnd="10dp"
@@ -46,7 +46,7 @@
         android:layout_width="340dp"
         android:layout_height="40dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="388dp"
         android:layout_marginEnd="10dp"
         android:background="@drawable/button_background"
         android:text="Confirm change"
@@ -54,7 +54,7 @@
         android:textColor="@color/white"
         android:textSize="24dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.117"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/changeEmail" />
 
@@ -63,12 +63,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="142dp"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="211dp"
         android:text="Change email"
         android:textColor="#E35353"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.206"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -60,9 +61,9 @@ class InteresredFragment : Fragment() {
                                 if(response.isSuccessful)
                                 {
                                     var decodedpets=response.body()!!.pets
-                                    if (decodedpets.isEmpty())
+                                    if (decodedpetsInterests.isEmpty())
                                     {
-                                        Toast.makeText(context,"Something went wrong", Toast.LENGTH_LONG).show()
+                                        view.findViewById<TextView>(R.id.emptyMsg).text="You are not interested\n           in a pet yet"
                                     }
                                     else
                                     {

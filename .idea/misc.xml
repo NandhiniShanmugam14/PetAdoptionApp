@@ -17,10 +17,10 @@
         <entry key="..\:/Android Development/PetAdoptionApp/app/src/main/res/layout/app_bar_home_nav.xml" value="0.1" />
         <entry key="..\:/Android Development/PetAdoptionApp/app/src/main/res/layout/card_layout.xml" value="0.15353260869565216" />
         <entry key="..\:/Android Development/PetAdoptionApp/app/src/main/res/layout/content_home_nav.xml" value="0.1640625" />
-        <entry key="..\:/Android Development/PetAdoptionApp/app/src/main/res/layout/fragment_account_delete.xml" value="0.1640625" />
-        <entry key="..\:/Android Development/PetAdoptionApp/app/src/main/res/layout/fragment_change_mail.xml" value="0.1640625" />
+        <entry key="..\:/Android Development/PetAdoptionApp/app/src/main/res/layout/fragment_account_delete.xml" value="0.22" />
+        <entry key="..\:/Android Development/PetAdoptionApp/app/src/main/res/layout/fragment_change_mail.xml" value="0.22" />
         <entry key="..\:/Android Development/PetAdoptionApp/app/src/main/res/layout/fragment_home.xml" value="0.1" />
-        <entry key="..\:/Android Development/PetAdoptionApp/app/src/main/res/layout/fragment_interesred.xml" value="0.1" />
+        <entry key="..\:/Android Development/PetAdoptionApp/app/src/main/res/layout/fragment_interesred.xml" value="0.3333333333333333" />
         <entry key="..\:/Android Development/PetAdoptionApp/app/src/main/res/layout/fragment_login_history.xml" value="0.1640625" />
         <entry key="..\:/Android Development/PetAdoptionApp/app/src/main/res/layout/fragment_others.xml" value="0.1490036231884058" />
         <entry key="..\:/Android Development/PetAdoptionApp/app/src/main/res/layout/fragment_profile.xml" value="0.3333333333333333" />
@@ -67,7 +67,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.3333333333333333" />
+        <option name="scale" value="0.22" />
       </ProjectState>
     </option>
   </component>

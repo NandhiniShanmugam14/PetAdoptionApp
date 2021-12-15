@@ -1,5 +1,6 @@
 package com.example.petadoptionapplication.ui.accountdelete
 
+import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -49,6 +50,10 @@ class AccountDeleteFragment : Fragment() {
                     ) {
                         if (response.isSuccessful) {
                             Toast.makeText(context, "Deleted User", Toast.LENGTH_LONG).show()
+                            val progressDialog= ProgressDialog(context,R.style.PetAppDialogStyle)
+                            progressDialog.setTitle("User Deleting")
+                            progressDialog.setMessage("Loading")
+                            progressDialog.show()
                             val intent = Intent(context, LoginActivity::class.java)
                             startActivity(intent)
                             activity?.finish()

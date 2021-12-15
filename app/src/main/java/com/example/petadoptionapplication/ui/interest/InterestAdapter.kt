@@ -75,9 +75,10 @@ class InterestAdapter(private val application: Application): RecyclerView.Adapte
                             {
                                 Toast.makeText(holder.itemView.context,"Deleted Interest",Toast.LENGTH_LONG).show()
                                 val progressDialog= ProgressDialog(holder.itemView.context,R.style.PetAppDialogStyle)
-                                progressDialog.setTitle("Logging in")
+                                progressDialog.setTitle("Interest Removing")
                                 progressDialog.setMessage("Loading")
                                 progressDialog.show()
+                                Navigation.findNavController(holder.itemView).navigate(R.id.nav_home)
                             }
                             else
                             {
