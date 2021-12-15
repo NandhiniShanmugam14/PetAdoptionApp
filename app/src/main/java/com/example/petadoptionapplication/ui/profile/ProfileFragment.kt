@@ -79,9 +79,8 @@ class ProfileFragment : Fragment() {
             startActivityForResult(intent,100)
 
         }
-        val pic=activity?.getSharedPreferences("photos",Context.MODE_PRIVATE)?.getString("photo",null)
-        val getToken=activity?.getSharedPreferences("photos",Context.MODE_PRIVATE)?.getString("token",null)
-        if(pic!=null && token==getToken) {
+        val pic=activity?.getSharedPreferences("photos",Context.MODE_PRIVATE)?.getString(email,null)
+        if(pic!=null) {
             val decoded = Base64.decode(pic, 0)
             val image = BitmapFactory.decodeByteArray(decoded, 0, decoded.size)
             view.findViewById<ImageView>(R.id.picCapture)?.setImageBitmap(image)
@@ -102,15 +101,15 @@ class ProfileFragment : Fragment() {
 
             val sharedPreferences1= activity?.getSharedPreferences("user", Context.MODE_PRIVATE)
             val token=sharedPreferences1!!.getString("token",null)
-
+            val mail=sharedPreferences1!!.getString("mail",null)
             val sharedPreferences=activity?.getSharedPreferences("photos",Context.MODE_PRIVATE)
 
             val editor=sharedPreferences!!.edit()
             editor.apply()
             {
                 putString("token",token)
-                putString("photo",encode)
-            }.apply()
+                putString(mail,encode)
+            }.commit()
             activity?.recreate()
         }
     }

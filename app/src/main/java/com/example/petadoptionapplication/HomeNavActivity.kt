@@ -39,10 +39,9 @@ class HomeNavActivity : AppCompatActivity() {
         navUserEmail.text=sharedPreferences.getString("mail",null)
         logoLetter.text = sharedPreferences.getString("mail", null)?.substring(0,1)?.uppercase()
 
-        val token=sharedPreferences.getString("token",null)
-        val pic=getSharedPreferences("photos",Context.MODE_PRIVATE)?.getString("photo",null)
+        val pic=getSharedPreferences("photos",Context.MODE_PRIVATE)?.getString(sharedPreferences.getString("mail",null),null)
         val getToken=getSharedPreferences("photos",Context.MODE_PRIVATE)?.getString("token",null)
-        if(pic!=null && token==getToken) {
+        if(pic!=null) {
             val decoded = Base64.decode(pic,0)
             val image = BitmapFactory.decodeByteArray(decoded,0,decoded.size)
             imageView.setImageBitmap(image)
