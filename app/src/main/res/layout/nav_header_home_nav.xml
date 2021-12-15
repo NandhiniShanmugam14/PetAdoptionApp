@@ -14,7 +14,7 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/LogoNav"
         android:layout_width="70dp"
         android:layout_height="69dp"
         android:layout_marginTop="55dp"
@@ -32,10 +32,10 @@
         android:text="@string/nav_header_subtitle"
         android:textColor="#808080"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/LogoNav" />
 
     <TextView
-        android:id="@+id/firstChar"
+        android:id="@+id/LogoText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="26dp"
@@ -44,8 +44,8 @@
         android:textColor="#FFFFFF"
         android:textSize="29sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintStart_toStartOf="@+id/LogoNav"
+        app:layout_constraintTop_toTopOf="@+id/LogoNav" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

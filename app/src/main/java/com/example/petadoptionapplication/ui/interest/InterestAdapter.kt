@@ -78,6 +78,7 @@ class InterestAdapter(private val application: Application): RecyclerView.Adapte
                                 progressDialog.setTitle("Interest Removing")
                                 progressDialog.setMessage("Loading")
                                 progressDialog.show()
+                                progressDialog.dismiss()
                                 Navigation.findNavController(holder.itemView).navigate(R.id.nav_home)
                             }
                             else
