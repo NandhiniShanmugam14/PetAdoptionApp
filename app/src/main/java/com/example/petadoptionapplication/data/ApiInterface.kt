@@ -5,6 +5,7 @@ import com.example.petadoptionapplication.data.others.usersList
 import com.example.petadoptionapplication.data.pets.PetInterests
 import com.example.petadoptionapplication.data.pets.PetList
 import com.example.petadoptionapplication.data.pets.SendPet
+import com.example.petadoptionapplication.data.user.ChangeEmail
 import com.example.petadoptionapplication.data.user.User
 import com.example.petadoptionapplication.data.user.UserReq
 import okhttp3.ResponseBody
@@ -36,15 +37,15 @@ interface ApiInterface {
 
     //DeletePetInterest
     @DELETE("users/me/petInterests/{interestId}")
-    fun deleteInterest(@Path("interestId") interestId: Int):Call<ResponseBody>
+    fun deleteInterest(@Path("interestId") interestId: Int,@HeaderMap headerMap: MutableMap<String, String>):Call<ResponseBody>
 
     @Headers("Content-Type: application/json")
     @GET("users/me/loginHistory")
-    suspend fun getLoginEntries(@HeaderMap headerMap:MutableMap<String,String>): loginEntriesList
+    fun getLoginEntries(@HeaderMap headerMap:MutableMap<String,String>):Call<loginEntriesList>
 
     @Headers("Content-Type: application/json")
     @GET("users")
-    suspend fun getUsers(@HeaderMap headerMap:MutableMap<String,String>): usersList
+    fun getUsers(@HeaderMap headerMap:MutableMap<String,String>):Call<usersList>
 
     @Headers("Content-Type: application/json")
     @POST("users/me/petInterests")
@@ -54,6 +55,9 @@ interface ApiInterface {
     @DELETE("users/me")
     fun deleteUser(@HeaderMap headerMap: MutableMap<String, String>):Call<ResponseBody>
 
+    @Headers("Content-Type: application/json")
+    @POST("users/me/email")
+    fun changeMail(@Body email:ChangeEmail,@HeaderMap headerMap: MutableMap<String, String>):Call<ResponseBody>
 
 }
 

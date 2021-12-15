@@ -6,14 +6,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.petadoptionapplication.R
 import com.example.petadoptionapplication.data.PetApplication
+import com.example.petadoptionapplication.data.others.usersList
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class OthersFragment : Fragment() {
 
@@ -38,11 +43,24 @@ class OthersFragment : Fragment() {
         val petService = petApplication.api
 
         CoroutineScope(Dispatchers.IO).launch {
-            val decodedusers = petService.getUsers(headerMap)
-            withContext(Dispatchers.Main)
-            {
-                adapter.setData(decodedusers)
-            }
+            petService.getUsers(headerMap).enqueue(object : Callback<usersList?> {
+                override fun onResponse(call: Call<usersList?>, response: Response<usersList?>) {
+                    if(response.isSuccessful)
+                    {
+                        val decodedusers =response.body()!!
+                        adapter.setData(decodedusers)
+                    }
+                    else
+                    {
+                        Toast.makeText(context,"Something Went Wrong",Toast.LENGTH_LONG).show()
+                    }
+                }
+
+                override fun onFailure(call: Call<usersList?>, t: Throwable) {
+                    Toast.makeText(context,t.message,Toast.LENGTH_LONG).show()
+                }
+            })
+
         }
 
 

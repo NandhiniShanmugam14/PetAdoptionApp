@@ -7,15 +7,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.petadoptionapplication.R
+import com.example.petadoptionapplication.data.LoginHistory.loginEntriesList
 import com.example.petadoptionapplication.data.PetApplication
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
@@ -46,11 +51,26 @@ class LoginHistoryFragment : Fragment() {
         val petService = petApplication.api
 
         CoroutineScope(Dispatchers.IO).launch {
-            val decodedloginentries = petService.getLoginEntries(headerMap)
-            withContext(Dispatchers.Main)
-            {
-                adapter.setData(decodedloginentries)
-            }
+            petService.getLoginEntries(headerMap).enqueue(object : Callback<loginEntriesList?> {
+                override fun onResponse(
+                    call: Call<loginEntriesList?>,
+                    response: Response<loginEntriesList?>
+                ) {
+                    if(response.isSuccessful)
+                    {
+                        val decodedLogHistory=response.body()!!
+                        adapter.setData(decodedLogHistory)
+                    }
+                    else
+                    {
+                        Toast.makeText(context,"Something Went Wrong!!",Toast.LENGTH_LONG).show()
+                    }
+                }
+
+                override fun onFailure(call: Call<loginEntriesList?>, t: Throwable) {
+                    Toast.makeText(context,t.message,Toast.LENGTH_LONG).show()
+                }
+            })
         }
 
 

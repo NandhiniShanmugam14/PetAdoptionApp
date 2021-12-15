@@ -1,5 +1,7 @@
 package com.example.petadoptionapplication.ui.loginhistory
 
+import android.app.Application
+import android.content.Context
 import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.petadoptionapplication.R
 import com.example.petadoptionapplication.data.LoginHistory.loginEntriesList
 import com.example.petadoptionapplication.data.LoginHistory.loginTimestamp
+import com.example.petadoptionapplication.data.PetApplication
 import com.example.petadoptionapplication.data.pets.PetList
 import com.example.petadoptionapplication.databinding.ActivityHomeNavBinding
 import com.example.petadoptionapplication.ui.home.RecyclerAdapter
@@ -37,7 +40,6 @@ class LoginAdapter : RecyclerView.Adapter<LoginAdapter.MyViewHolder>() {
         val instant= java.time.Instant.ofEpochMilli(currentItem.loginTimestamp).atZone(ZoneId.of("US/Pacific"))
             .toLocalDateTime()
         holder.itemView.findViewById<TextView>(R.id.logged_in).text="Logged in: "+ DateTimeFormatter.ofPattern("dd MMM yyyy").format(instant)
-
     }
 
     override fun getItemCount(): Int {

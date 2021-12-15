@@ -72,7 +72,7 @@
             app:layout_constraintTop_toBottomOf="@+id/petint_type" />
 
         <TextView
-            android:id="@+id/loginButton"
+            android:id="@+id/notInterestButton"
             android:layout_width="340dp"
             android:layout_height="40dp"
             android:layout_marginTop="184dp"

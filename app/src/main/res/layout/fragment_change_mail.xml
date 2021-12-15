@@ -8,7 +8,7 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/usermail"
+        android:id="@+id/changeEmail"
         style="@style/TextPet"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -29,11 +29,10 @@
 
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/changeemail"
+        app:layout_constraintTop_toBottomOf="@+id/emailText"
         app:startIconDrawable="@drawable/ic_mail">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Input your email"
@@ -57,10 +56,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.117"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usermail" />
+        app:layout_constraintTop_toBottomOf="@+id/changeEmail" />
 
     <TextView
-        android:id="@+id/changeemail"
+        android:id="@+id/emailText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="142dp"

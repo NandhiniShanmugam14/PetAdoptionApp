@@ -32,8 +32,8 @@ class InteresredFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view= inflater.inflate(R.layout.fragment_interesred, container, false)
-
-        val adapter = InterestAdapter()
+        val application=activity?.application
+        val adapter = InterestAdapter(application!!)
         val recyclerView = view.findViewById<RecyclerView>(R.id.petInterestView)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
