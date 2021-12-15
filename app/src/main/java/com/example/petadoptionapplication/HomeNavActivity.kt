@@ -31,8 +31,10 @@ class HomeNavActivity : AppCompatActivity() {
         val navigationView : NavigationView = findViewById(R.id.nav_view)
         val headerView : View = navigationView.getHeaderView(0)
         val navUserEmail : TextView = headerView.findViewById(R.id.nav_mail)
+        val logoLetter : TextView = headerView.findViewById(R.id.firstChar)
         val sharedPreferences=getSharedPreferences("user", Context.MODE_PRIVATE)
         navUserEmail.text=sharedPreferences.getString("mail",null)
+        logoLetter.text = sharedPreferences.getString("mail", null)?.substring(0,1)?.uppercase()
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_home_nav)
